@@ -7,6 +7,14 @@
   <title>Access Blocked - atharvgarg.tech</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --bg-dark: #0a0f1a;
+      --bg-light: #101824;
+      --card-bg: rgba(255, 255, 255, 0.05);
+      --highlight: #4f8cff;
+      --text-muted: #a6b2c4;
+    }
+
     * {
       margin: 0;
       padding: 0;
@@ -16,9 +24,9 @@
     html, body {
       height: 100%;
       font-family: 'Inter', sans-serif;
-      background: radial-gradient(ellipse at top, #0a0f1a, #06080f);
-      color: #ffffff;
-      overflow-x: hidden;
+      background: var(--bg-dark);
+      color: white;
+      scroll-behavior: smooth;
     }
 
     header {
@@ -26,73 +34,74 @@
       top: 0;
       width: 100%;
       padding: 1.2rem 2rem;
-      background: rgba(10, 15, 26, 0.8);
-      backdrop-filter: blur(8px);
+      background: rgba(10, 15, 26, 0.9);
+      backdrop-filter: blur(10px);
       border-bottom: 1px solid #1f2a3c;
-      z-index: 10;
+      z-index: 100;
     }
 
     header h1 {
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       font-weight: 700;
-      color: #ffffff;
     }
 
-    .container {
-      padding-top: 6rem;
-      padding-bottom: 3rem;
+    header h1 a {
+      color: white;
+      text-decoration: none;
+    }
+
+    section {
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
-      align-items: center;
       justify-content: center;
-      min-height: 100vh;
+      align-items: center;
+      padding: 6rem 2rem 4rem;
+      background: var(--bg-dark);
+      transition: all 0.5s ease;
     }
 
     .card {
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: var(--card-bg);
+      border: 1px solid rgba(255, 255, 255, 0.08);
       backdrop-filter: blur(20px);
-      padding: 2rem;
-      border-radius: 16px;
-      max-width: 500px;
+      padding: 2.5rem;
+      border-radius: 18px;
+      max-width: 600px;
       width: 90%;
-      animation: fadeInUp 1s ease forwards;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+      transform: translateY(50px);
+      opacity: 0;
+      transition: transform 0.8s ease, opacity 0.8s ease;
+    }
+
+    .card.visible {
+      transform: translateY(0);
+      opacity: 1;
     }
 
     h2 {
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
+      font-size: 2rem;
+      margin-bottom: 1.2rem;
     }
 
     p {
       font-size: 1rem;
-      line-height: 1.6;
-      color: #cdd6e0;
+      line-height: 1.8;
+      color: var(--text-muted);
     }
 
     footer {
-      margin-top: auto;
-      padding: 2rem;
+      background: var(--bg-light);
       text-align: center;
-      font-size: 0.9rem;
-      color: #7f8fa4;
+      padding: 2rem 1rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
     }
 
     a {
-      color: #4f8cff;
+      color: var(--highlight);
       text-decoration: none;
-    }
-
-    @keyframes fadeInUp {
-      from {
-        transform: translateY(40px);
-        opacity: 0;
-      }
-      to {
-        transform: translateY(0);
-        opacity: 1;
-      }
     }
 
     @media (max-width: 600px) {
@@ -101,7 +110,7 @@
       }
 
       .card {
-        padding: 1.5rem;
+        padding: 2rem;
       }
     }
   </style>
@@ -109,26 +118,36 @@
 
 <body>
   <header>
-    <h1>atharvgarg.tech</h1>
+    <h1><a href="/">atharvgarg.tech</a></h1>
   </header>
 
-  <main class="container">
-    <div class="card">
-      <h2>You're Blocked From Mailing</h2>
+  <section>
+    <div class="card" id="card-blocked">
+      <h2>You've Been Blocked</h2>
       <p>
-        This page is shown because an attempt to send email was made to a recipient who has actively blocked incoming mail.
-        <br /><br />
-        Email systems implement such blocks to protect users from unwanted, suspicious, or unsolicited communication. If you've encountered this page, it means delivery has been stopped at the server level.
-        <br /><br />
-        If you believe this is an error, please ensure proper sender reputation and compliance with mail policies.
+        The email server has rejected the message delivery attempt. This usually occurs when the recipient has restricted incoming mails from your sender domain or IP. <br /><br />
+        Mail blocks help prevent abuse, phishing, and unsolicited traffic. Such systems are dynamic and may change over time depending on server settings, blacklist records, or behavior analysis.<br /><br />
+        To avoid this, make sure you're using verified addresses, follow server compliance policies, and avoid frequent or suspicious mail activity.
       </p>
     </div>
-  </main>
+  </section>
 
   <footer>
     &copy; <script>document.write(new Date().getFullYear())</script> atharvgarg.tech &mdash;
     Contact: <a href="mailto:webmaster@atharvgarg.tech">webmaster@atharvgarg.tech</a>
   </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    observer.observe(document.getElementById('card-blocked'));
+  </script>
 </body>
 
 </html>

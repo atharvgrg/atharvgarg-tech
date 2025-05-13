@@ -1,101 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <title>Blocked — Email Access Restricted</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <!-- AOS (Animate on Scroll) CSS -->
-  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Access Blocked - atharvgarg.tech</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
-
-    body {
+    * {
       margin: 0;
       padding: 0;
-      background: #121212;
-      color: #fff;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
       font-family: 'Inter', sans-serif;
+      background: radial-gradient(ellipse at top, #0a0f1a, #06080f);
+      color: #ffffff;
       overflow-x: hidden;
     }
 
-    .section {
-      min-height: 100vh;
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 1.2rem 2rem;
+      background: rgba(10, 15, 26, 0.8);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid #1f2a3c;
+      z-index: 10;
+    }
+
+    header h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .container {
+      padding-top: 6rem;
+      padding-bottom: 3rem;
       display: flex;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
-      text-align: center;
-      padding: 3rem;
+      justify-content: center;
+      min-height: 100vh;
     }
 
-    .hero h1 {
-      font-size: 3.5rem;
-      color: #facc15;
+    .card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(20px);
+      padding: 2rem;
+      border-radius: 16px;
+      max-width: 500px;
+      width: 90%;
+      animation: fadeInUp 1s ease forwards;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    h2 {
+      font-size: 1.8rem;
       margin-bottom: 1rem;
-      font-weight: 700;
     }
 
-    .hero p {
-      font-size: 1.2rem;
-      color: #bbb;
-      margin-top: 1rem;
-    }
-
-    .content p {
-      font-size: 1.05rem;
-      color: #ccc;
-      max-width: 600px;
+    p {
+      font-size: 1rem;
       line-height: 1.6;
-      margin: 1rem auto;
+      color: #cdd6e0;
     }
 
-    .footer {
-      padding: 1.5rem;
-      font-size: 0.9rem;
-      color: #777;
-      position: fixed;
-      bottom: 0;
-      width: 100%;
+    footer {
+      margin-top: auto;
+      padding: 2rem;
       text-align: center;
+      font-size: 0.9rem;
+      color: #7f8fa4;
+    }
+
+    a {
+      color: #4f8cff;
+      text-decoration: none;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        transform: translateY(40px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
     }
 
     @media (max-width: 600px) {
-      .hero h1 {
-        font-size: 2.5rem;
+      header h1 {
+        font-size: 1.2rem;
       }
 
-      .content p {
-        font-size: 1rem;
+      .card {
+        padding: 1.5rem;
       }
     }
   </style>
 </head>
+
 <body>
+  <header>
+    <h1>atharvgarg.tech</h1>
+  </header>
 
-  <div class="section hero" data-aos="fade-up">
-    <h1>Access Blocked</h1>
-    <p>We've detected unusual activity, resulting in a temporary block on this email address.</p>
-  </div>
+  <main class="container">
+    <div class="card">
+      <h2>You're Blocked From Mailing</h2>
+      <p>
+        This page is shown because an attempt to send email was made to a recipient who has actively blocked incoming mail.
+        <br /><br />
+        Email systems implement such blocks to protect users from unwanted, suspicious, or unsolicited communication. If you've encountered this page, it means delivery has been stopped at the server level.
+        <br /><br />
+        If you believe this is an error, please ensure proper sender reputation and compliance with mail policies.
+      </p>
+    </div>
+  </main>
 
-  <div class="section content" data-aos="fade-up" data-aos-delay="200">
-    <p>This action was triggered as part of a security protocol. Our system is designed to protect both senders and recipients by blocking suspicious activities, including spam or abuse of the server.</p>
-    <p>If you believe this block was in error, we encourage you to reach out to the system administrator or follow the appropriate support channels for resolution.</p>
-    <p>Thank you for your understanding and cooperation!</p>
-  </div>
-
-  <div class="footer">
-    <p>© 2025 Atharv Garg | All Rights Reserved</p>
-  </div>
-
-  <!-- AOS.js Library for Scroll Animations -->
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-  <script>
-    AOS.init({
-      easing: 'ease-out-back',
-      duration: 1200,
-    });
-  </script>
+  <footer>
+    &copy; <script>document.write(new Date().getFullYear())</script> atharvgarg.tech &mdash;
+    Contact: <a href="mailto:webmaster@atharvgarg.tech">webmaster@atharvgarg.tech</a>
+  </footer>
 </body>
+
 </html>

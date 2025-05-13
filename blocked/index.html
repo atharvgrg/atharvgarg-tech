@@ -1,63 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
   <title>Email Blocked — Atharv Garg</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- AOS Animate On Scroll Library -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
 
     body {
       margin: 0;
       padding: 0;
+      background: #1f1f1f;
+      color: #fff;
       font-family: 'Inter', sans-serif;
-      background-color: #0f0f0f;
-      color: #ffffff;
+      overflow-x: hidden;
+    }
+
+    .section {
+      min-height: 100vh;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
-      height: 100vh;
-      text-align: center;
-    }
-
-    .box {
-      max-width: 500px;
       padding: 2rem;
-      border: 1px solid #333;
-      border-radius: 12px;
-      background-color: #1a1a1a;
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.03);
-    }
-
-    h1 {
-      color: #facc15;
-      margin-bottom: 0.5rem;
-    }
-
-    p {
-      color: #ccc;
-      font-size: 1rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .email {
-      font-weight: bold;
+      text-align: center;
       color: #fff;
     }
 
-    .note {
-      margin-top: 1.5rem;
+    .hero {
+      font-size: 3rem;
+      font-weight: 700;
+      color: #facc15;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: #bbb;
+    }
+
+    .info {
+      max-width: 600px;
+    }
+
+    .info p {
+      color: #ccc;
+      line-height: 1.6;
+      font-size: 1.05rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .footer {
+      padding: 2rem 1rem;
       font-size: 0.9rem;
       color: #777;
+    }
+
+    @media (max-width: 600px) {
+      .hero {
+        font-size: 2.5rem;
+      }
+
+      .info p {
+        font-size: 1rem;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="box">
-    <h1>Mail Delivery Blocked</h1>
-    <p>The address <span class="email">pratha.iimun@gmail.com</span><br/> is currently blocked from sending emails to this server.</p>
-    <p>This may be due to spam activity or security policies.</p>
-    <p class="note">This is an automated message. Please do not reply.</p>
+
+  <div class="section hero" data-aos="fade-up">
+    <h1>Email Blocked</h1>
+    <p>Your email was blocked from sending messages due to a system security measure.</p>
   </div>
+
+  <div class="section info" data-aos="fade-up" data-aos-delay="200">
+    <p>This block may occur due to various reasons such as potential spam activities, security concerns, or sending patterns that were flagged by the system.</p>
+    <p>If you believe this is an error or need assistance, please reach out to the relevant support team or check your email configuration.</p>
+    <p>We apologize for any inconvenience caused. Thank you for your understanding.</p>
+  </div>
+
+  <div class="footer">
+    <p>© 2025 Atharv Garg. All rights reserved.</p>
+  </div>
+
+  <!-- AOS.js Library for Animations -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      easing: 'ease-out-back',
+      duration: 1200,
+    });
+  </script>
 </body>
 </html>

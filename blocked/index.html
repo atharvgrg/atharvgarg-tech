@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Email Blocked — Atharv Garg</title>
+  <title>Blocked — Email Access Restricted</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <!-- AOS Animate On Scroll Library -->
+  <!-- AOS (Animate on Scroll) CSS -->
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
 
   <style>
@@ -14,7 +14,7 @@
     body {
       margin: 0;
       padding: 0;
-      background: #1f1f1f;
+      background: #121212;
       color: #fff;
       font-family: 'Inter', sans-serif;
       overflow-x: hidden;
@@ -26,46 +26,47 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      padding: 2rem;
       text-align: center;
-      color: #fff;
+      padding: 3rem;
     }
 
-    .hero {
-      font-size: 3rem;
-      font-weight: 700;
+    .hero h1 {
+      font-size: 3.5rem;
       color: #facc15;
       margin-bottom: 1rem;
+      font-weight: 700;
     }
 
     .hero p {
       font-size: 1.2rem;
       color: #bbb;
+      margin-top: 1rem;
     }
 
-    .info {
-      max-width: 600px;
-    }
-
-    .info p {
-      color: #ccc;
-      line-height: 1.6;
+    .content p {
       font-size: 1.05rem;
-      margin-bottom: 1.5rem;
+      color: #ccc;
+      max-width: 600px;
+      line-height: 1.6;
+      margin: 1rem auto;
     }
 
     .footer {
-      padding: 2rem 1rem;
+      padding: 1.5rem;
       font-size: 0.9rem;
       color: #777;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      text-align: center;
     }
 
     @media (max-width: 600px) {
-      .hero {
+      .hero h1 {
         font-size: 2.5rem;
       }
 
-      .info p {
+      .content p {
         font-size: 1rem;
       }
     }
@@ -74,21 +75,21 @@
 <body>
 
   <div class="section hero" data-aos="fade-up">
-    <h1>Email Blocked</h1>
-    <p>Your email was blocked from sending messages due to a system security measure.</p>
+    <h1>Access Blocked</h1>
+    <p>We've detected unusual activity, resulting in a temporary block on this email address.</p>
   </div>
 
-  <div class="section info" data-aos="fade-up" data-aos-delay="200">
-    <p>This block may occur due to various reasons such as potential spam activities, security concerns, or sending patterns that were flagged by the system.</p>
-    <p>If you believe this is an error or need assistance, please reach out to the relevant support team or check your email configuration.</p>
-    <p>We apologize for any inconvenience caused. Thank you for your understanding.</p>
+  <div class="section content" data-aos="fade-up" data-aos-delay="200">
+    <p>This action was triggered as part of a security protocol. Our system is designed to protect both senders and recipients by blocking suspicious activities, including spam or abuse of the server.</p>
+    <p>If you believe this block was in error, we encourage you to reach out to the system administrator or follow the appropriate support channels for resolution.</p>
+    <p>Thank you for your understanding and cooperation!</p>
   </div>
 
   <div class="footer">
-    <p>© 2025 Atharv Garg. All rights reserved.</p>
+    <p>© 2025 Atharv Garg | All Rights Reserved</p>
   </div>
 
-  <!-- AOS.js Library for Animations -->
+  <!-- AOS.js Library for Scroll Animations -->
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script>
     AOS.init({

@@ -1,71 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <title>Atharv Garg — Coming Soon</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Coming Soon - atharvgarg.tech</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+    :root {
+      --bg-dark: #0a0f1a;
+      --bg-light: #101824;
+      --card-bg: rgba(255, 255, 255, 0.05);
+      --highlight: #4f8cff;
+      --text-muted: #a6b2c4;
+    }
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-    body {
-      background-color: #0e0e0e;
-      color: #f1f1f1;
+
+    html, body {
+      height: 100%;
       font-family: 'Inter', sans-serif;
-      height: 100vh;
+      background: var(--bg-dark);
+      color: white;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 1.2rem 2rem;
+      background: rgba(10, 15, 26, 0.9);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #1f2a3c;
+      z-index: 100;
+    }
+
+    header h1 {
+      font-size: 1.4rem;
+      font-weight: 700;
+    }
+
+    header h1 a {
+      color: white;
+      text-decoration: none;
+    }
+
+    section {
+      min-height: 100vh;
       display: flex;
+      flex-direction: column;
+      justify-content: center;
       align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 2rem;
+      padding: 6rem 2rem 4rem;
+      background: var(--bg-dark);
+      transition: all 0.5s ease;
     }
-    .container {
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(20px);
+      padding: 2.5rem;
+      border-radius: 18px;
       max-width: 600px;
+      width: 90%;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+      transform: translateY(50px);
+      opacity: 0;
+      transition: transform 0.8s ease, opacity 0.8s ease;
     }
-    h1 {
-      font-size: 2.5rem;
-      font-weight: 600;
-      color: #facc15;
-      margin-bottom: 1rem;
+
+    .card.visible {
+      transform: translateY(0);
+      opacity: 1;
     }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1.2rem;
+    }
+
     p {
-      font-size: 1.125rem;
-      color: #ccc;
-      margin-bottom: 2rem;
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--text-muted);
+      text-align: center;
     }
-    .email-box {
-      display: flex;
-      justify-content: center;
-      gap: 0.5rem;
-      flex-wrap: wrap;
+
+    footer {
+      background: var(--bg-light);
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
     }
-    input[type="email"] {
-      padding: 0.75rem 1rem;
-      border: none;
-      border-radius: 5px;
-      width: 250px;
+
+    a {
+      color: var(--highlight);
+      text-decoration: none;
     }
-    button {
-      background-color: #facc15;
-      border: none;
-      padding: 0.75rem 1.25rem;
-      font-weight: bold;
-      border-radius: 5px;
-      cursor: pointer;
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.2rem;
+      }
+
+      .card {
+        padding: 2rem;
+      }
     }
   </style>
 </head>
+
 <body>
-  <div class="container">
-    <h1>Something Exciting is Coming</h1>
-    <p>I’m working on something cool. Stay tuned.</p>
-    <div class="email-box">
-      <input type="email" placeholder="Enter your email" />
-      <button>Notify Me</button>
+  <header>
+    <h1><a href="/">atharvgarg.tech</a></h1>
+  </header>
+
+  <section>
+    <div class="card" id="card-coming">
+      <h2>Something Awesome Is Brewing</h2>
+      <p>
+        This personal space is under active development.<br />
+        Soon, you’ll get a peek into my work, ideas, and everything in between.<br /><br />
+        Stay tuned.
+      </p>
     </div>
-  </div>
+  </section>
+
+  <footer>
+    &copy; <script>document.write(new Date().getFullYear())</script> atharvgarg.tech &mdash;
+    Contact: <a href="mailto:webmaster@atharvgarg.tech">webmaster@atharvgarg.tech</a>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    observer.observe(document.getElementById('card-coming'));
+  </script>
 </body>
+
 </html>

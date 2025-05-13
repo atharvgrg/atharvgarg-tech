@@ -1,39 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Blocked from Mail — Explained</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Email Blocked — Atharv Garg</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
     body {
-      background-color: #0e0e0e;
-      color: #fff;
-      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: #0f0f0f;
+      color: #ffffff;
       display: flex;
-      align-items: center;
       justify-content: center;
+      align-items: center;
       height: 100vh;
+      text-align: center;
+    }
+
+    .box {
+      max-width: 500px;
       padding: 2rem;
+      border: 1px solid #333;
+      border-radius: 12px;
+      background-color: #1a1a1a;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.03);
     }
-    .container {
-      max-width: 600px;
-    }
-    h1, h2 {
+
+    h1 {
       color: #facc15;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      color: #ccc;
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .email {
+      font-weight: bold;
+      color: #fff;
+    }
+
+    .note {
+      margin-top: 1.5rem;
+      font-size: 0.9rem;
+      color: #777;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Blocked from Mail — Explained</h1>
-    <p>The email address you used has been <strong>intentionally blocked</strong> from sending emails to our server.</p>
-    <h2>Why?</h2>
-    <ul>
-      <li>🚫 Spam or unsolicited messages</li>
-      <li>❗ Abusive or inappropriate content</li>
-      <li>🔁 Repeated auto-replies or errors</li>
-    </ul>
-    <p>This is a permanent action. Contact us via other channels if you believe this is a mistake.</p>
+  <div class="box">
+    <h1>Mail Delivery Blocked</h1>
+    <p>The address <span class="email">pratha.iimun@gmail.com</span><br/> is currently blocked from sending emails to this server.</p>
+    <p>This may be due to spam activity or security policies.</p>
+    <p class="note">This is an automated message. Please do not reply.</p>
   </div>
 </body>
 </html>

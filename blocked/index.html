@@ -8,11 +8,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-dark: #0a0f1a;
-      --bg-light: #101824;
-      --card-bg: rgba(255, 255, 255, 0.05);
-      --highlight: #4f8cff;
-      --text-muted: #a6b2c4;
+      --bg: #f9fafb;
+      --primary: #0044ff;
+      --accent: #111827;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --card-bg: white;
+      --shadow: rgba(0, 0, 0, 0.1);
     }
 
     * {
@@ -24,8 +26,8 @@
     html, body {
       height: 100%;
       font-family: 'Inter', sans-serif;
-      background: var(--bg-dark);
-      color: white;
+      background: var(--bg);
+      color: var(--text);
       scroll-behavior: smooth;
     }
 
@@ -34,20 +36,16 @@
       top: 0;
       width: 100%;
       padding: 1.2rem 2rem;
-      background: rgba(10, 15, 26, 0.9);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid #1f2a3c;
+      background: var(--card-bg);
+      box-shadow: 0 2px 12px var(--shadow);
       z-index: 100;
     }
 
-    header h1 {
-      font-size: 1.4rem;
-      font-weight: 700;
-    }
-
     header h1 a {
-      color: white;
+      font-size: 1.5rem;
+      font-weight: 700;
       text-decoration: none;
+      color: var(--primary);
     }
 
     section {
@@ -56,61 +54,80 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      padding: 6rem 2rem 4rem;
-      background: var(--bg-dark);
-      transition: all 0.5s ease;
+      padding: 7rem 2rem 4rem;
     }
 
     .card {
       background: var(--card-bg);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      backdrop-filter: blur(20px);
-      padding: 2.5rem;
-      border-radius: 18px;
-      max-width: 600px;
-      width: 90%;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
-      transform: translateY(50px);
-      opacity: 0;
-      transition: transform 0.8s ease, opacity 0.8s ease;
+      border-radius: 16px;
+      padding: 3rem;
+      max-width: 900px;
+      width: 100%;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.12);
+      text-align: left;
+      transition: all 0.5s ease;
+      position: relative;
     }
 
-    .card.visible {
-      transform: translateY(0);
-      opacity: 1;
+    .card::before {
+      content: "🚫";
+      position: absolute;
+      top: -30px;
+      left: 30px;
+      font-size: 3rem;
+      animation: pulse 1.2s infinite ease-in-out;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 0.8; }
+      50% { transform: scale(1.1); opacity: 1; }
+      100% { transform: scale(1); opacity: 0.8; }
     }
 
     h2 {
-      font-size: 2rem;
-      margin-bottom: 1.2rem;
+      font-size: 2.4rem;
+      margin-bottom: 1.5rem;
+      color: var(--accent);
     }
 
     p {
-      font-size: 1rem;
-      line-height: 1.8;
-      color: var(--text-muted);
+      font-size: 1.1rem;
+      line-height: 1.9;
+      color: var(--text);
+      margin-bottom: 1.2rem;
+    }
+
+    ul {
+      margin-left: 1.5rem;
+      padding-left: 1rem;
+      list-style-type: disc;
+    }
+
+    ul li {
+      margin-bottom: 0.8rem;
+      color: var(--muted);
     }
 
     footer {
-      background: var(--bg-light);
+      background: #f1f5f9;
       text-align: center;
       padding: 2rem 1rem;
-      font-size: 0.85rem;
-      color: var(--text-muted);
+      font-size: 0.9rem;
+      color: var(--muted);
     }
 
     a {
-      color: var(--highlight);
+      color: var(--primary);
       text-decoration: none;
     }
 
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 1.2rem;
-      }
-
+    @media (max-width: 768px) {
       .card {
         padding: 2rem;
+      }
+
+      h2 {
+        font-size: 2rem;
       }
     }
   </style>
@@ -122,32 +139,37 @@
   </header>
 
   <section>
-    <div class="card" id="card-blocked">
-      <h2>You've Been Blocked</h2>
+    <div class="card">
+      <h2>If you’re seeing this, you’re probably blocked.</h2>
       <p>
-        The email server has rejected the message delivery attempt. This usually occurs when the recipient has restricted incoming mails from your sender domain or IP. <br /><br />
-        Mail blocks help prevent abuse, phishing, and unsolicited traffic. Such systems are dynamic and may change over time depending on server settings, blacklist records, or behavior analysis.<br /><br />
-        To avoid this, make sure you're using verified addresses, follow server compliance policies, and avoid frequent or suspicious mail activity.
+        Welcome to the curious side of the web. You’ve likely landed here because your attempt to send an email to <strong>atharvgarg.tech</strong> was blocked.
+      </p>
+      <p>
+        <strong>So what does this mean?</strong><br />
+        Our mail server has strict filters in place to protect the domain and its users from unwanted content. If you're seeing this page, your email was either flagged or filtered out.
+      </p>
+      <p>
+        This doesn’t mean you did something wrong — it’s likely an automated protection measure triggered by patterns our server didn’t like.
+      </p>
+      <p><strong>Some reasons you may be blocked include:</strong></p>
+      <ul>
+        <li>Your email server is listed on public blacklists</li>
+        <li>You sent an email from an unverified or misconfigured domain</li>
+        <li>The message matched spam or phishing filters</li>
+        <li>Unusual activity detected — like sending high volumes without permission</li>
+      </ul>
+      <p>
+        <strong>Can it be fixed?</strong> Absolutely. If you believe this is a mistake, consider reaching out through other means or reviewing your domain’s mail configuration.
+      </p>
+      <p>
+        This system is here to protect—not to frustrate. If you're just exploring or curious how these things work, welcome aboard. You’ve discovered one of the tiny shields quietly defending email on the internet. 🔒📡
       </p>
     </div>
   </section>
 
   <footer>
-    &copy; <script>document.write(new Date().getFullYear())</script> atharvgarg.tech &mdash;
-    Contact: <a href="mailto:webmaster@atharvgarg.tech">webmaster@atharvgarg.tech</a>
+    &copy; <script>document.write(new Date().getFullYear())</script> atharvgarg.tech — Contact: <a href="mailto:webmaster@atharvgarg.tech">webmaster@atharvgarg.tech</a>
   </footer>
-
-  <script>
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.1 });
-
-    observer.observe(document.getElementById('card-blocked'));
-  </script>
 </body>
 
 </html>
